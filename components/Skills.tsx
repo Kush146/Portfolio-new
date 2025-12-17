@@ -11,6 +11,7 @@ import {
   FaDocker,
   FaAws,
   FaMobileAlt,
+  FaRobot,
 } from 'react-icons/fa'
 import {
   SiNextdotjs,
@@ -110,7 +111,7 @@ const Skills = () => {
         { name: 'TensorFlow', icon: SiTensorflow, color: '#FF6F00' },
         { name: 'PyTorch', icon: SiPytorch, color: '#EE4C2C' },
         { name: 'Scikit-learn', icon: SiScikitlearn, color: '#F7931E' },
-        { name: 'Computer Vision (OpenCV)', icon: SiOpenbsd, color: '#2563EB' },
+        { name: 'Computer Vision (OpenCV)', icon: FaRobot, color: '#2563EB' },
         { name: 'OpenAI / LLM APIs', icon: SiOpenai, color: '#22D3EE' },
         { name: 'Data Analysis', icon: SiScikitlearn, color: '#10B981' },
       ],
