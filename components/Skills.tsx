@@ -1,7 +1,6 @@
 'use client'
 
 import { motion } from 'framer-motion'
-import { useInView } from 'framer-motion'
 import { useRef, useState, useEffect } from 'react'
 import {
   FaReact,
@@ -40,7 +39,6 @@ import {
 const Skills = () => {
   const ref = useRef(null)
   const [isLoading, setIsLoading] = useState(true)
-  const isInView = useInView(ref, { once: true, margin: '-100px' })
 
   useEffect(() => {
     const timer = setTimeout(() => setIsLoading(false), 400)
@@ -143,11 +141,10 @@ const Skills = () => {
   return (
     <motion.section
       id="skills"
-      className="py-20 relative overflow-hidden scroll-mt-24"
-      initial={{ opacity: 0, y: 40 }}
-      whileInView={{ opacity: 1, y: 0 }}
-      transition={{ duration: 0.8 }}
-      viewport={{ once: true, amount: 0.2 }}
+      className="py-16 md:py-20 relative overflow-hidden scroll-mt-24"
+      initial={{ opacity: 0, y: 30 }}
+      animate={{ opacity: 1, y: 0 }}
+      transition={{ duration: 0.6 }}
     >
       {/* Background Effects */}
       <div className="absolute inset-0 bg-gradient-to-b from-transparent via-accent-900/10 to-transparent" />
@@ -155,9 +152,9 @@ const Skills = () => {
       <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         <motion.div
           ref={ref}
-          initial={{ opacity: 0, y: 50 }}
-          animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 50 }}
-          transition={{ duration: 0.8 }}
+          initial={{ opacity: 0, y: 40 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6 }}
         >
           <motion.div
             className="text-center mb-12"
@@ -179,12 +176,12 @@ const Skills = () => {
             </div>
           </motion.div>
 
-          <div className="grid md:grid-cols-3 gap-6 md:gap-8">
+          <div className="grid md:grid-cols-3 gap-4 md:gap-6">
             {isLoading &&
               Array.from({ length: 3 }).map((_, idx) => (
                 <div
                   key={`skills-skel-${idx}`}
-                  className="glass-strong rounded-3xl p-6 md:p-8 border border-gray-700/30 animate-pulse space-y-3"
+                  className="glass-strong rounded-3xl p-5 md:p-6 border border-gray-700/30 animate-pulse space-y-3"
                 >
                   <div className="h-4 w-1/2 bg-white/10 rounded" />
                   <div className="space-y-2">
@@ -198,11 +195,11 @@ const Skills = () => {
               skillCategories.map((category, categoryIndex) => (
               <motion.div
                 key={category.title}
-                className="glass-strong rounded-3xl p-6 md:p-8 relative overflow-hidden group"
-                initial={{ opacity: 0, y: 30 }}
-                animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 30 }}
-                transition={{ delay: categoryIndex * 0.2 }}
-                whileHover={{ scale: 1.03, y: -8 }}
+                className="glass-strong rounded-3xl p-5 md:p-6 relative overflow-hidden group"
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ delay: categoryIndex * 0.1, duration: 0.5 }}
+                whileHover={{ scale: 1.02, y: -6 }}
               >
                 {/* Gradient overlay on hover */}
                 <div 
@@ -222,9 +219,9 @@ const Skills = () => {
                 />
                 
                 <div className="relative z-10">
-                  <div className="flex items-center justify-center mb-6">
-                    <span className="text-4xl mr-3">{category.icon}</span>
-                    <h3 className="text-2xl font-bold text-gradient-blue">
+                  <div className="flex items-center justify-center mb-4 md:mb-6">
+                    <span className="text-3xl md:text-4xl mr-3">{category.icon}</span>
+                    <h3 className="text-xl md:text-2xl font-bold text-gradient-blue">
                       {category.title}
                     </h3>
                   </div>
@@ -233,11 +230,11 @@ const Skills = () => {
                     {category.skills.map((skill, skillIndex) => (
                       <motion.div
                         key={skill.name}
-                        className="group/item flex items-center space-x-4 p-4 rounded-xl glass border border-gray-700/50 hover:border-primary-500/50 transition-all"
-                        initial={{ opacity: 0, x: -20 }}
-                        animate={isInView ? { opacity: 1, x: 0 } : { opacity: 0, x: -20 }}
-                        transition={{ delay: categoryIndex * 0.2 + skillIndex * 0.1 }}
-                        whileHover={{ x: 8, scale: 1.02 }}
+                        className="group/item flex items-center space-x-4 p-3 md:p-4 rounded-xl glass border border-gray-700/50 hover:border-primary-500/50 transition-all"
+                        initial={{ opacity: 0, x: -15 }}
+                        animate={{ opacity: 1, x: 0 }}
+                        transition={{ delay: categoryIndex * 0.1 + skillIndex * 0.05, duration: 0.4 }}
+                        whileHover={{ x: 6, scale: 1.01 }}
                       >
                         <div 
                           className="p-2 rounded-lg"
