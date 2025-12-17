@@ -159,7 +159,7 @@ const Skills = () => {
           <motion.div
             className="text-center mb-12"
             initial={{ opacity: 0, scale: 0.9 }}
-            animate={isInView ? { opacity: 1, scale: 1 } : { opacity: 0, scale: 0.9 }}
+            animate={{ opacity: 1, scale: 1 }}
             transition={{ duration: 0.6 }}
           >
             <h2 className="text-4xl md:text-6xl font-bold mb-4">
